@@ -5,9 +5,9 @@ Parmanand completed M. S. and Ph.D. in Geospatial Information Sciences at the Un
 
 
 **Publications**
-<br />P. Sinha, A. E. Gaughan, F. R. Stevens, J. J. Nieves, A. Sorichetta, and A. J. Tatem,"Assessing the spatial sensiti-vity of a random forest model : Application in gridded population modeling", Journal of Computers Environment andUrban Systems, May 2019, https://doi.org/10.1016/j.compenvurbsys.2019.01.006.
-<br />P. Sinha, and D. Griffith,"Incorporating urban sprawl measures in land use forecasting model", "Transactions in GIS", DOI:10.1111/tgis.12554.
-<br />Chun, Yongwan, Daniel Griffith, Monghyeon Lee, and Parmanand Sinha,"Eigenvector selection with stepwiseregression techniques to construct eigenvector spatial filters", Journal of Geographical Systems January 2016, vol 18,https ://doi.org/10.1007/s10109-015-0225-3.
+<br />1. P. Sinha, A. E. Gaughan, F. R. Stevens, J. J. Nieves, A. Sorichetta, and A. J. Tatem,"Assessing the spatial sensiti-vity of a random forest model : Application in gridded population modeling", Journal of Computers Environment andUrban Systems, May 2019, https://doi.org/10.1016/j.compenvurbsys.2019.01.006.
+<br />2. P. Sinha, and D. Griffith,"Incorporating urban sprawl measures in land use forecasting model", "Transactions in GIS", DOI:10.1111/tgis.12554.
+<br />3. Chun, Yongwan, Daniel Griffith, Monghyeon Lee, and Parmanand Sinha,"Eigenvector selection with stepwiseregression techniques to construct eigenvector spatial filters", Journal of Geographical Systems January 2016, vol 18,https ://doi.org/10.1007/s10109-015-0225-3.
 
 **Current Workshops**
 <br />Introduction to Spatial Raster Data in R
