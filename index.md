@@ -12,11 +12,11 @@ Previously as a postdoctoral assistant, he has worked at the University of
 Louisville on the WorldPop project, and with the Spatial Sciences Census
 Research group at the University of Tennessee, Knoxville.
 
-### Publications
+### Recent Publications
 
--   K. Onda, P. Sinha, A. Gaughan, F. Stevens, and N. kaza \*"The missing
-    millions: Undercounting urbanization in India"\*, \*\*Population and
-    Environment\*\*\*, Dec 2019 <https://doi.org/10.1007/s11111-019-00329-2>
+-   K. Onda, P. Sinha, A. Gaughan, F. Stevens, and N. kaza "The missing
+    millions: Undercounting urbanization in India", **Population and
+    Environment**, Dec 2019 <https://doi.org/10.1007/s11111-019-00329-2>
 
 -   P. Sinha, A. E. Gaughan, F. R. Stevens, J. J. Nieves, A. Sorichetta, and A.
     J. Tatem,*"Assessing the spatial sensitivity of a random forest model :
@@ -25,8 +25,13 @@ Research group at the University of Tennessee, Knoxville.
     <https://doi.org/10.1016/j.compenvurbsys.2019.01.006>.
 
 -   P. Sinha, and D. Griffith,*"Incorporating urban sprawl measures in land use
-    forecasting model"*, **"Transactions in GIS"**, [https
+    forecasting model"*, **"Transactions in GIS"**, August 2019, [https
     ://doi.org/10.1111/tgis.12554](https%20:/doi.org/10.1111/tgis.12554)
+
+-   "How Remotely Sensed Built Areas and Their Realizations Inform and Constrain
+    Gridded Population Models," *IGARSS 2019 - 2019 IEEE International
+    Geoscience and Remote Sensing Symposium*, Yokohama, Japan, 2019, pp.
+    6364-6367. <https://doi.org/10.1109/IGARSS.2019.8899339>
 
 -   Chun, Yongwan, Daniel Griffith, Monghyeon Lee, and Parmanand
     Sinha,*"Eigenvector selection with stepwiseregression techniques to
