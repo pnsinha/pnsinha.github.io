@@ -1,5 +1,6 @@
 title: pnsinha.github.io
 description: P Sinha GitHub Pages.
+<<<<<<< HEAD
 url: https://pnsinha.github.io
 
 staticman:
@@ -281,3 +282,6 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+=======
+theme: jekyll-theme-minimal
+>>>>>>> parent of 77a58de... Update _config.yml
