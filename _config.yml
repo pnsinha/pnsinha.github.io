@@ -1,5 +1,7 @@
 title: pnsinha.github.io
 description: P Sinha GitHub Pages.
 url: https://pnsinha.github.io
-
+logo: /assets/img/logo.png
+google_analytics:
+show_downloads: true
 theme: jekyll-theme-minimal
