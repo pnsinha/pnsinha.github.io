@@ -2,6 +2,7 @@ title: pnsinha.github.io
 description: P Sinha GitHub Pages.
 <<<<<<< HEAD
 url: https://pnsinha.github.io
+<<<<<<< HEAD
 
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
@@ -285,3 +286,9 @@ compress_html:
 =======
 theme: jekyll-theme-minimal
 >>>>>>> parent of 77a58de... Update _config.yml
+=======
+logo: /assets/img/logo.png
+google_analytics:
+show_downloads: true
+theme: jekyll-theme-minimal
+>>>>>>> 99dbba4afa710d5723e93b9bbc2a7bc061643559
