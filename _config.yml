@@ -1,6 +1,7 @@
 title: pnsinha.github.io
 description: P Sinha GitHub Pages.
 <<<<<<< HEAD
+<<<<<<< HEAD
 url: https://pnsinha.github.io
 <<<<<<< HEAD
 
@@ -292,3 +293,6 @@ google_analytics:
 show_downloads: true
 theme: jekyll-theme-minimal
 >>>>>>> 99dbba4afa710d5723e93b9bbc2a7bc061643559
+=======
+remote_theme: thelehhman/plainwhite-jekyll
+>>>>>>> parent of e752c5c... Update _config.yml
