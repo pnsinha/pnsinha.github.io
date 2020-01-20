@@ -12,6 +12,8 @@ Previously as a postdoctoral assistant, he has worked at the University of
 Louisville on the WorldPop project, and with the Spatial Sciences Census
 Research group at the University of Tennessee, Knoxville.
 
+<img src="https://avatars0.githubusercontent.com/u/1073651?s=200&amp;v=4" alt="https://www.researchgate.net/profile/Parmanand_Sinha" style="zoom:45%;" /> <img src="https://www.electrochem.org/wp-content/uploads/2017/11/ORCID-icon.png" alt="https://orcid.org/0000-0001-6992-6555" style="zoom:3%;" />
+
 ### Recent Publications
 
 -   K. Onda, P. Sinha, A. Gaughan, F. Stevens, and N. kaza "The missing
