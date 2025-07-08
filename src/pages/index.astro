@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, AUTHOR } from '../consts';
+import { getCollection } from 'astro:content';
+
+// Get latest blog posts
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+// Format date
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+---
+
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <main class="mx-auto max-w-2xl px-4 py-12">
+    <section class="mb-16 space-y-7">
+      <h1 class="text-3xl font-semibold tracking-tight">Parmanand Sinha</h1>
+      <p class="text-base text-neutral-800 dark:text-neutral-300 leading-7">HPC Scientist at the University of Chicago's Research Computing Center. I focus on designing and optimizing high-performance computing workflows for data science and deep learning research.</p>
+      <p class="text-base text-neutral-800 dark:text-neutral-300 leading-7">I help researchers leverage advanced computational resources in fields like geospatial analysis, archaeological mapping, and cancer research.</p>
+      <div class="mt-8">
+        <a href="/about" class="text-neutral-800 dark:text-neutral-200 font-medium hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors">More about me →</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-medium text-2xl mb-4">Writings</h2>
+      <ul class="space-y-4">
+        {posts.map(post => (
+          <li class="mb-8">
+            <a href={`/blog/${post.slug}`} class="group flex flex-col space-y-2">
+              <div class="flex items-center">
+                <span class="text-neutral-900 dark:text-neutral-100 font-medium group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
+                  {post.data.title}
+                </span>
+              </div>
+              <div>
+                <p class="text-neutral-600 dark:text-neutral-400 text-sm">{post.data.description}</p>
+              </div>
+              <time datetime={post.data.pubDate.toISOString()} class="text-neutral-500 dark:text-neutral-500 text-sm">
+                {formatDate(post.data.pubDate)}
+              </time>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+

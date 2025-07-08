@@ -1,0 +1,48 @@
+---
+import { SITE, AUTHOR, SOCIAL_LINKS } from '../consts';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col items-center">
+    <a href="/blog" class="text-base font-medium text-blue-600 dark:text-blue-400 hover:underline">Blog</a>
+    <p class="mt-4 text-base text-gray-500 dark:text-gray-400">&copy; {currentYear} {SITE.title}. All rights reserved.</p>
+  </div>
+</footer>
+            </a>
+          ))}
+        </div>
+      </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 2em 1em 4em 1em;
+    background: linear-gradient(var(--gray-gradient)) no-repeat;
+    color: rgb(var(--gray));
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+  }
+  .social-links a {
+    text-decoration: none;
+    color: rgb(var(--gray));
+  }
+  .social-links a:hover {
+    color: rgb(var(--gray-dark));
+  }
+</style>

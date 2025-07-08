@@ -1,0 +1,290 @@
+---
+import '../styles/global.css';
+import { SITE, AUTHOR } from '../consts';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noStyles?: boolean;
+  noIndex?: boolean;
+  canonicalUrl?: string;
+}
+
+const { 
+  title = '', 
+  description = SITE.description,
+  noStyles = false,
+  noIndex = false,
+  canonicalUrl
+} = Astro.props;
+
+const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+const pageUrl = new URL(Astro.url.pathname, SITE.url).toString();
+const canonical = canonicalUrl ? new URL(canonicalUrl, SITE.url).toString() : pageUrl;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <title>{pageTitle}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content={SITE.title} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:site" content={SITE.twitter} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Global CSS -->
+    <style>
+      :root {
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+          Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 
+          'Courier New', monospace;
+        
+        /* Dark mode colors */
+        --color-bg: #ffffff;
+        --color-bg-secondary: #f9fafb;
+        --color-text: #111827;
+        --color-text-secondary: #4b5563;
+        --color-border: #e5e7eb;
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      
+      .dark {
+        --color-bg: #111827;
+        --color-bg-secondary: #1f2937;
+        --color-text: #f9fafb;
+        --color-text-secondary: #9ca3af;
+        --color-border: #374151;
+        --color-primary: #3b82f6;
+        --color-primary-hover: #60a5fa;
+      }
+      
+      html {
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      
+      /* Smooth scrolling for anchor links */
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+      
+      /* Selection styling */
+      ::selection {
+        background-color: rgba(59, 130, 246, 0.3);
+      }
+      
+      /* Focus styles */
+      *:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+        border-radius: 0.25rem;
+      }
+      
+      /* Typography */
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.2;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: var(--color-text);
+      }
+      
+      h1 { font-size: 2.25rem; }
+      h2 { font-size: 1.875rem; }
+      h3 { font-size: 1.5rem; }
+      h4 { font-size: 1.25rem; }
+      
+      p, ul, ol {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      
+      a:hover {
+        color: var(--color-primary-hover);
+        text-decoration: underline;
+      }
+      
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.9em;
+        background-color: var(--color-bg-secondary);
+        padding: 0.2em 0.4em;
+        border-radius: 0.25rem;
+      }
+      
+      pre {
+        background-color: var(--color-bg-secondary);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+      
+      pre code {
+        background-color: transparent;
+        padding: 0;
+      }
+      
+      /* Utility classes */
+      .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      
+      @media (min-width: 640px) {
+        .container {
+          max-width: 640px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .container {
+          max-width: 768px;
+        }
+      }
+      
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 1024px;
+        }
+      }
+      
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 1280px;
+        }
+      }
+    </style>
+    
+    <!-- Tailwind CSS -->
+    {!noStyles && <link rel="stylesheet" href="/styles/global.css" />}
+  </head>
+  
+  <body class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 antialiased transition-colors duration-200">
+    <div class="flex flex-col min-h-screen">
+      <div class="fixed inset-0 flex justify-center sm:px-8">
+        <div class="flex w-full max-w-7xl lg:px-8">
+          <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-gray-900 dark:ring-zinc-300/20" />
+        </div>
+      </div>
+      
+      <div class="relative">
+        <Header />
+        
+        <main class="mt-16 sm:mt-24">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-3xl">
+              <slot />
+            </div>
+          </div>
+        </main>
+        
+        <Footer />
+      </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script>
+      // Initialize theme from localStorage or system preference
+      (function() {
+        // Check for dark mode preference at the OS level
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved user preference, if it's available
+        const savedTheme = localStorage.getItem('theme');
+        
+        // Determine the theme based on saved preference or system preference
+        const setTheme = (theme) => {
+          if (theme === 'dark' || (!theme && prefersDark.matches)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        };
+        
+        // Set the initial theme
+        setTheme(savedTheme);
+        
+        // Listen for changes in system preference
+        prefersDark.addEventListener('change', (e) => {
+          // Only update if there's no saved preference
+          if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+          }
+        });
+        
+        // Expose theme toggling to the window object for use in theme toggler
+        window.__setTheme = (theme) => {
+          if (theme === 'system') {
+            localStorage.removeItem('theme');
+            setTheme(prefersDark.matches ? 'dark' : 'light');
+          } else {
+            localStorage.setItem('theme', theme);
+            setTheme(theme);
+          }
+        };
+      })();
+      
+      // Add a class to the html element when JavaScript is enabled
+      document.documentElement.classList.add('js');
+    </script>
+  </body>
+</html>

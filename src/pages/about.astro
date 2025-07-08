@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const currentYear = new Date().getFullYear();
+---
+
+<Layout title="About | Parmanand Sinha" description="About Parmanand Sinha - Computational Scientist, HPC Expert, Geospatial Scientist, and Application Developer">
+  <main class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-4xl font-bold mb-8">About Me</h1>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <p>I am an experienced Computational Scientist with a Ph.D. and over a decade of expertise in high-performance computing (HPC), computational science, and system configuration. My work at the University of Chicago's Research Computing Center (RCC) focuses on designing and optimizing HPC workflows for data science, deep learning, and geospatial analytics. I am passionate about democratizing advanced technologies for diverse research communities.</p>
+
+      <h2 class="mt-8">About Me</h2>
+      <ul>
+        <li><strong>Over 10 years of Experience</strong> in HPC, computational science, and system configuration.</li>
+        <li><strong>Expertise in Deep Learning Applications</strong> for archaeological mapping and geospatial analysis.</li>
+        <li><strong>Application Developer</strong>: Developed an AI-based analytical platform for cancer catchment analysis using Django/React for the University of Chicago Oncology Center, integrating statistical analysis with geospatial visualization tools.</li>
+        <li><strong>Platform Developer</strong>: Democratizing deep learning models in archaeology.</li>
+        <li><strong>Strong Background</strong> in machine learning, geospatial analysis, and software development.</li>
+        <li><strong>Proficient in Programming Languages</strong>: Python, R, C++, Bash, Django, React.</li>
+        <li><strong>HPC Tools</strong>: Slurm, PBS Pro, Environment Modules, Enterprise Linux.</li>
+        <li><strong>Dependency Management</strong>: Spack, EasyBuild, vcpkg.</li>
+        <li><strong>DevOps Skills</strong>: REST API development, CI/CD pipelines, GitLab CI/CD, Ansible Playbook.</li>
+        <li><strong>Cloud & Containers</strong>: Google Cloud Platform (GCP), Docker with specialization in rootless container technologies for enhanced security in multi-tenant environments.</li>
+        <li><strong>Statistical Analysis</strong>: R-based statistical modeling, geospatial statistics, Bayesian frameworks for healthcare analytics.</li>
+        <li><strong>Databases</strong>: MySQL, PostgreSQL.</li>
+        <li><strong>Operating Systems</strong>: Linux on EL8 x86_64.</li>
+        <li><strong>Passionate About</strong> advancing science and technology through innovative computational solutions.</li>
+      </ul>
+    </section>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <h2>Professional Experience</h2>
+      <h3>HPC Scientist and Application Developer</h3>
+      <p><strong>Research Computing Center, University of Chicago</strong><br/>
+      <em>December 2018 – Present | Chicago, IL</em></p>
+      <ul>
+        <li>Designed, optimized, and deployed end-to-end HPC workflows for data science and deep learning research.</li>
+        <li>Developed custom dispatch servers and integrated deep learning frameworks for geospatial analysis.</li>
+        <li>Created accessible platforms for deep learning in archaeology.</li>
+        <li>Developed and deployed an AI-based cancer catchment analytical platform using Django/React frontend with R-based statistical backend, integrating Bayesian statistical modeling for population health insights.</li>
+        <li>Managed Secure Data Enclave systems and ensured compliance with data governance policies.</li>
+        <li>Developed dashboards, microservices, and implemented Docker-based containerized deployments with rootless container technology for enhanced security in multi-tenant environments.</li>
+        <li>Maintained CI/CD pipelines for Singularity containers using Spack and GitLab CI/CD.</li>
+        <li>Integrated research data management with secure storage solutions and leveraged Google Cloud Platform (GCP) for scalable data processing pipelines.</li>
+        <li>Authored documentation and provided operational support for HPC tools and workflows.</li>
+        <li>Led workshops and courses on code parallelization, containerization, and reproducible research.</li>
+      </ul>
+      <h3>Post-Doctoral Scholar and Lecturer</h3>
+      <p><strong>University of Louisville</strong><br/>
+      <em>November 2016 – November 2018 | Louisville, KY</em></p>
+      <ul>
+        <li>Implemented and scaled machine learning models for global population distributions.</li>
+        <li>Developed online visualization and data sharing platforms for geospatial data.</li>
+        <li>Collaborated on research projects in population geography and urban planning.</li>
+      </ul>
+      <h3>Post-Doctoral Research Associate</h3>
+      <p><strong>NSF-Census Research Network, University of Tennessee</strong><br/>
+      <em>February 2015 – October 2016 | Knoxville, TN</em></p>
+      <ul>
+        <li>Conducted spatial covariance estimation using ACS microdata at the US Census Bureau.</li>
+        <li>Analyzed complex datasets and published research in collaboration with the Census Bureau.</li>
+      </ul>
+    </section>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Ph.D. in Geospatial Information Sciences</strong>, University of Texas at Dallas (2010–2015)</li>
+        <li><strong>MCRP, City and Regional Planning</strong>, University of Texas at Arlington (2008–2010)</li>
+        <li><strong>Bachelor's in Architecture</strong>, Indian Institute of Technology, Roorkee (2005)</li>
+      </ul>
+    </section>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <h2>Skills</h2>
+      <ul>
+        <li>Programming & Scripting: Python, R, C++, Bash, Django, React</li>
+        <li>HPC: Slurm, PBS Pro, Environment Modules, Enterprise Linux</li>
+        <li>Dependency Management: Spack, EasyBuild, vcpkg</li>
+        <li>DevOps: REST API, CI/CD, GitLab CI/CD, Ansible Playbook</li>
+        <li>Databases: MySQL, PostgreSQL</li>
+        <li>Geospatial Tools: ArcGIS, Remote Sensing, LiDAR, Orfeo ToolBox</li>
+        <li>ML Frameworks: TensorFlow, Keras, Vertex AI</li>
+        <li>Containerization: Singularity, Docker</li>
+        <li>Version Control: Git, GitHub</li>
+        <li>Strong communication and teamwork skills</li>
+      </ul>
+    </section>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <h2>Selected Publications</h2>
+      <ol>
+        <li><strong>Measuring the Contribution of Built-Settlement Data to Global Population Mapping</strong>, Social Sciences & Humanities Open, 2021</li>
+        <li><strong>Assessing the Spatial Sensitivity of a Random Forest Model: Application in Gridded Population Modeling</strong>, Computers, Environment and Urban Systems, 2019</li>
+        <li><strong>Incorporating Sprawl and Adjacency Measures in Land-Use Forecasting Model: A Case Study of Collin County, TX</strong>, Transactions in GIS, 2019</li>
+        <li><strong>The Missing Millions: Undercounting Urbanization in India</strong>, Population and Environment, 2019</li>
+        <li><strong>Global Spatio-temporally Harmonized Datasets for Producing High-resolution Population Denominators</strong>, Big Earth Data, 2019</li>
+        <li><strong>Eigenvector Selection with Stepwise Regression Techniques to Construct Eigenvector Spatial Filters</strong>, Journal of Geographical Systems, 2016</li>
+      </ol>
+    </section>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <h2>Awards and Honors</h2>
+      <ul>
+        <li>John Odland Award, Spatial Analysis and Modeling Student Paper Competition, 2015</li>
+        <li>Student Research Grant, Pioneer Natural Resources, 2014</li>
+        <li>Dean's Scholarship, School of Urban and Public Affairs, UT Arlington, 2009</li>
+        <li>Student Project Award, Texas Chapter of American Planning Association, 2009</li>
+      </ul>
+    </section>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <h2>Contact Me</h2>
+      <ul>
+        <li><strong>Website</strong>: <a href="https://pnsinha.github.io" target="_blank">pnsinha.github.io</a></li>
+        <li><strong>GitHub</strong>: <a href="https://github.com/pnsinha" target="_blank">github.com/pnsinha</a></li>
+        <li><strong>LinkedIn</strong>: <a href="#" target="_blank">linkedin.com/in/parmanand-sinha</a></li>
+      </ul>
+    </section>
+
+    <section class="prose dark:prose-invert mx-auto mb-12 text-left">
+      <h2>Let's Connect</h2>
+      <p>I am always excited to explore new opportunities and collaborations in computational science, HPC, machine learning, geospatial analysis, and application development. Whether you're interested in my research, looking for HPC expertise, or seeking a collaborator for innovative projects, feel free to reach out!</p>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,182 @@
+---
+import { SITE, NAV_ITEMS } from '../consts';
+import ThemeToggle from './ThemeToggle.astro';
+
+const currentPath = Astro.url.pathname;
+
+// Helper function to check if a path is active
+const isActive = (path: string) => {
+  if (path === '/') {
+    return currentPath === path;
+  }
+  return currentPath.startsWith(path);
+};
+---
+
+<header 
+  class="fixed inset-x-0 top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200/80 dark:border-gray-800/80"
+  style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-12 items-center justify-between">
+      <!-- Logo / Home link -->
+      <div class="flex items-center">
+        <a 
+          href="/" 
+          class="flex items-center space-x-2 text-gray-900 dark:text-white hover:opacity-80 transition-opacity"
+        >
+          <span class="text-xl font-bold tracking-tight">{SITE.title}</span>
+        </a>
+      </div>
+
+      <!-- Desktop navigation -->
+      <nav class="hidden md:flex items-center space-x-1">
+        <a href="/about" class={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${isActive('/about') ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800/50'}`}>About</a>
+        <a href="/blog" class={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${isActive('/blog') ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800/50'}`}>Writings</a>
+        <div class="ml-2 flex items-center">
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <div class="flex items-center md:hidden">
+        <ThemeToggle class="mr-2" />
+        <button 
+          id="mobile-menu-button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none"
+          aria-label="Open main menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg 
+            class="h-6 w-6" 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16" 
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div 
+    id="mobile-menu" 
+    class="hidden md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800"
+    style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);"
+  >
+    <div class="space-y-1 px-2 pt-2 pb-3">
+      {NAV_ITEMS.map((item) => (
+        <a 
+          href={item.href}
+          class={`block px-3 py-2 rounded-md text-base font-medium ${
+            isActive(item.href)
+              ? 'bg-gray-100 text-blue-600 dark:bg-gray-800 dark:text-blue-400'
+              : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+          }`}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
+          {item.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+        document.body.style.overflow = isExpanded ? '' : 'hidden';
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Close menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+      
+      // Close menu on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  header {
+    margin: 0;
+    padding: 0 1em;
+    background: white;
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav a {
+    padding: 1em 0.5em;
+    color: var(--black);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+  }
+  .social-links,
+  .social-links a {
+    display: flex;
+  }
+  @media (max-width: 720px) {
+    .social-links {
+      display: none;
+    }
+  }
+</style>

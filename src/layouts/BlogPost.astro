@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+
+const { title, description, pubDate, updatedDate, tags, heroImage, heroImageCredit, body, slug } = Astro.props;
+
+// Format date
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+
+// Calculate reading time
+const readingTime = (content) => {
+  if (typeof content !== 'string') return '';
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
+};
+---
+
+<Layout title={title} description={description}>
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <article class="prose dark:prose-invert mx-auto">
+      <header class="mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+          {title}
+        </h1>
+        
+        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-4">
+          <time datetime={pubDate && pubDate.toISOString ? pubDate.toISOString() : ''}>
+            {formatDate(pubDate)}
+          </time>
+          
+          {updatedDate && (
+            <span class="text-sm">
+              (Updated: {formatDate(updatedDate)})
+            </span>
+          )}
+          
+          <span>•</span>
+          <span>{readingTime(body || '')}</span>
+          
+          {tags && tags.length > 0 && (
+            <>
+              <span>•</span>
+              <div class="flex flex-wrap gap-2">
+                {tags.map(tag => (
+                  <span class="px-2 py-1 text-xs rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+        
+        {heroImage && (
+          <div class="mt-8 rounded-lg overflow-hidden">
+            <img
+              src={heroImage}
+              alt=""
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+            {heroImageCredit && (
+              <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 text-center">
+                {heroImageCredit}
+              </p>
+            )}
+          </div>
+        )}
+      </header>
+      
+      <div class="prose dark:prose-invert max-w-none">
+        <slot />
+      </div>
+      
+      <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+          <a 
+            href="/blog" 
+            class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center"
+          >
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to writings
+          </a>
+          <div class="text-sm text-gray-500 dark:text-gray-400">
+            Found a typo? <a href={`https://github.com/pnsinha/research-blog-v2/edit/main/src/content/blog/${slug ? slug + '.mdx' : ''}`} class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener">Edit this post</a>
+          </div>
+        </div>
+      </footer>
+    </article>
+  </div>
+</Layout>
+							
