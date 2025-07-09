@@ -5,6 +5,9 @@ pubDate: "2025-07-01"
 tags: ["research", "placeholder"]
 draft: false
 heroImage: "/placeholder-hero.jpg"
+authors: ["John Doe", "Jane Smith"]
+status: "published"
+journal: "Journal of Placeholder Research"
 ---
 
 # Sample Research Paper
