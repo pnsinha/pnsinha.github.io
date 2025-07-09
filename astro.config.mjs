@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://research-blog-v2.vercel.app', // Update with your production URL
+  site: 'https://pnsinha.github.io', // GitHub Pages URL
   integrations: [
     mdx(),
     sitemap(),
